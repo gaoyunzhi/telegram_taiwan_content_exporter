@@ -4,6 +4,7 @@
 from telegram.ext import Updater
 import export_to_telegraph
 import link_extractor
+import yaml
 
 source = ['https://whogovernstw.org', 'https://www.thinkingtaiwan.com']
 
@@ -28,8 +29,9 @@ def export():
 		for link, _ in link_extractor.getLinks(s):
 			if link in existing:
 				continue
-			taiwan_channel.send_message(
-				export_to_telegraph.export(url, toSimplified=True))
+			r = export_to_telegraph.export(link, force=True, 
+				toSimplified=True, throw_exception=True)
+			taiwan_channel.send_message(r)
 			add(link)
 
 if __name__=='__main__':
