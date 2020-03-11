@@ -17,28 +17,16 @@ from PIL import Image
 import export_to_telegraph
 import time
 
-page_start = 1
-page_end = 50
-try:
-	page_end = int(sys.argv[1])
-	try:
-		page_end = int(sys.argv[2])
-		page_start = int(sys.argv[1])
-	except:
-		pass
-except:
-	pass
-
 with open('credential') as f:
 	credential = yaml.load(f, Loader=yaml.FullLoader)
 export_to_telegraph.token = credential['telegraph_token']
 
 tele = Updater(credential['bot_token'], use_context=True)
 debug_group = tele.bot.get_chat(-1001198682178)
-douban_channel = tele.bot.get_chat(-1001206770471)
+taiwan_channel = tele.bot.get_chat(-1001250188871)
 
 with open('existing') as f:
-	existing = yaml.load(f, Loader=yaml.FullLoader)
+	existing = set([x.strip() for x in f.readlines()])
 
 def getUrl(url):
 	return cached_url.get(url, {'cookie': credential['cookie']})

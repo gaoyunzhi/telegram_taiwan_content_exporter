@@ -1,6 +1,5 @@
 Personal use. 
 
-1. Aggregate Douban news feed. 
-2. Export interesting feed to Telegram.
+Export Taiwan news articles to Telegram, and translate to simplified Chinese.
 
 Will add doc if more than 10 people star.
