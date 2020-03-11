@@ -6,7 +6,9 @@ import export_to_telegraph
 import link_extractor
 import yaml
 
-source = ['https://whogovernstw.org', 'https://www.thinkingtaiwan.com']
+source = ['https://whogovernstw.org', 
+	# 'https://www.thinkingtaiwan.com',
+]
 
 with open('existing') as f:
 	existing = set([x.strip() for x in f.readlines()])
