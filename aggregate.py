@@ -5,6 +5,7 @@ from telegram.ext import Updater
 import export_to_telegraph
 import link_extractor
 import yaml
+import traceback
 
 source = ['https://whogovernstw.org', 
 	'https://www.thinkingtaiwan.com',
@@ -36,5 +37,18 @@ def export():
 			taiwan_channel.send_message(r)
 			add(link)
 
+def adhoc():
+	female_channel = tele.bot.get_chat(-1001162153695)
+	with open('所有联结.txt') as f:
+		for link in f.readlines():
+			try:
+				r = export_to_telegraph.export(link, force=True, 
+					toSimplified=True, throw_exception=True)
+				female_channel.send_message(r)
+			except Exception as e:
+				print(e)
+				traceback.print_tb(e)
+
 if __name__=='__main__':
-	export()
+	adhoc()
+	# export()
