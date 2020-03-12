@@ -6,6 +6,7 @@ import export_to_telegraph
 import link_extractor
 import yaml
 import traceback
+import time
 
 source = ['https://whogovernstw.org', 
 	'https://www.thinkingtaiwan.com',
@@ -50,5 +51,5 @@ def adhoc():
 				traceback.print_tb(e)
 
 if __name__=='__main__':
-	adhoc()
-	# export()
+	# adhoc()
+	export()
