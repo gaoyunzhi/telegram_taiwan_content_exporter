@@ -39,11 +39,11 @@ def export():
 
 def adhoc():
 	female_channel = tele.bot.get_chat(-1001162153695)
-	with open('所有联结.txt') as f:
+	with open('所有链接.txt') as f:
 		for link in f.readlines():
 			try:
-				r = export_to_telegraph.export(link, force=True, 
-					toSimplified=True, throw_exception=True)
+				r = export_to_telegraph.export(link.strip(), force=True, 
+					throw_exception=True)
 				female_channel.send_message(r)
 			except Exception as e:
 				print(e)
