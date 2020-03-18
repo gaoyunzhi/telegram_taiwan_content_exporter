@@ -9,8 +9,8 @@ import traceback
 import time
 
 source = [
-	# 'https://whogovernstw.org', 
-	# 'https://www.thinkingtaiwan.com',
+	'https://whogovernstw.org', 
+	'https://www.thinkingtaiwan.com',
 	'https://matters.news',
 ]
 
