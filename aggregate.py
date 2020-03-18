@@ -8,8 +8,10 @@ import yaml
 import traceback
 import time
 
-source = ['https://whogovernstw.org', 
-	'https://www.thinkingtaiwan.com',
+source = [
+	# 'https://whogovernstw.org', 
+	# 'https://www.thinkingtaiwan.com',
+	'https://matters.news',
 ]
 
 with open('existing') as f:
