@@ -9,9 +9,9 @@ import traceback
 import time
 
 source = [
-	'https://whogovernstw.org', 
-	'https://www.thinkingtaiwan.com',
 	'https://matters.news',
+	'https://www.thinkingtaiwan.com',
+	'https://whogovernstw.org', 
 ]
 
 with open('existing') as f:
@@ -32,6 +32,7 @@ def add(link):
 
 def export():
 	for s in source:
+		c = 0
 		for link, _ in link_extractor.getLinks(s):
 			if link in existing:
 				continue
@@ -39,6 +40,9 @@ def export():
 				toSimplified=True, throw_exception=True)
 			taiwan_channel.send_message(r)
 			add(link)
+			c += 1
+			if c > 2:
+				break
 
 def adhoc():
 	female_channel = tele.bot.get_chat(-1001162153695)
