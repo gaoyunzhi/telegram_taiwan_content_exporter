@@ -12,6 +12,7 @@ source = [
 	'https://matters.news',
 	'https://www.thinkingtaiwan.com',
 	'https://whogovernstw.org', 
+	'https://squatting2047.com',
 ]
 
 with open('existing') as f:
